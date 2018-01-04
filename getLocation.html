@@ -1,0 +1,46 @@
+<html>
+<head>
+</head>
+<body>
+
+You will see the alert with your location ( latitude then longitude) and then the distance between you and place of store
+</body>
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+</html>
+<script>
+
+$(document).ready(function getLocation() {
+	
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition);
+    } else { 
+        x.val( "Geolocation is not supported by this browser.");
+    }
+});
+
+function showPosition(position) {
+
+    var MyPos;
+    lati=position.coords.latitude;
+	longi=position.coords.longitude;
+    alert(lati);
+    alert(longi);
+
+                $.ajax({
+
+                type: "POST",
+                url: "getLocation.php",
+                data:{lati:lati,longi:longi},
+                dataType: 'text',
+                cache: false,
+                success: function(data) {
+                alert(data); // you cant comment this only for test
+                },error:function(data){
+                alert(data); // you cant comment this only for test
+                }
+     
+                });
+
+    }
+
+</script> 

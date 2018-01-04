@@ -1,0 +1,148 @@
+* {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	background: black;
+}
+
+body {
+	margin-left: 20px;
+	margin-right: 20px;
+	color: white;
+	font-family: sans-serif;
+}
+
+.crumb { text-decoration:none; }
+.crumb a:link { color: white; }
+.crumb a:visited { color: #dddddd; }
+.crumb a:hover { color: yellow; }
+.crumb a:active { color: white; }
+h1 a:link { color: #dddddd; }
+h1 a:visited { color: #dddddd; }
+h1 a:hover { color: yellow; }
+h1 a:active { color: #dddddd; }
+
+.white-text {
+	color: white;
+	font-family: sans-serif;
+	font-weight: normal;
+}
+.grey-text {
+	color: #888888;
+	font-family: sans-serif;
+	font-size: 85%;
+	font-style: italic;
+}
+
+.hidden {
+	display: none;
+}
+  
+@media (max-width: 480px) {
+	.masonry {
+		margin: 3% 0;
+	}
+	.masonry .grid-sizer {
+		width: 48.5%;
+	}
+	.masonry .gutter-sizer {
+		width: 3%;
+	}
+	.masonry .item {
+		width: 48.5%;
+		margin-bottom: 3%;
+	}
+	.masonry .item img {
+		width: 100%;
+	}
+}
+@media only screen and (max-width: xxspx) {
+	.masonry {
+	  margin: 3% 0;
+	}
+	.masonry .grid-sizer {
+	  width: 48.5%;
+	}
+	.masonry .gutter-sizer {
+	  width: 3%;
+	}
+	.masonry .item {
+	  width: 48.5%;
+	  margin-bottom: 3%;
+	}
+	.masonry .item img {
+	  width: 100%;
+	}
+}
+@media (min-width: 481px) and (max-width: 767px) {
+	.masonry {
+	  margin: 2.25% 0;
+	}
+	.masonry .grid-sizer {
+	  width: 31.83333%;
+	}
+	.masonry .gutter-sizer {
+	  width: 2.25%;
+	}
+	.masonry .item {
+	  width: 31.83333%;
+	  margin-bottom: 2.25%;
+	}
+	.masonry .item img {
+	  width: 100%;
+	}
+  }
+@media (min-width: 768px) {
+	.masonry {
+	  margin: 2% 0;
+	}
+	.masonry .grid-sizer {
+	  width: 23.5%;
+	}
+	.masonry .gutter-sizer {
+	  width: 2%;
+	}
+	.masonry .item {
+	  width: 23.5%;
+	  margin-bottom: 2%;
+	}
+	.masonry .item img {
+	  width: 100%;
+	}
+}
+@media (min-width: 992px) {
+	.masonry {
+	  margin: 1.875% 0;
+	}
+	.masonry .grid-sizer {
+	  width: 18.5%;
+	}
+	.masonry .gutter-sizer {
+	  width: 1.875%;
+	}
+	.masonry .item {
+	  width: 18.5%;
+	  margin-bottom: 1.875%;
+	}
+	.masonry .item img {
+	  width: 100%;
+	}
+}
+@media (min-width: 1200px) {
+	.masonry {
+	  margin: 1.8% 0;
+	}
+	.masonry .grid-sizer {
+	  width: 15.16667%;
+	}
+	.masonry .gutter-sizer {
+	  width: 1.8%;
+	}
+	.masonry .item {
+	  width: 15.16667%;
+	  margin-bottom: 1.8%;
+	}
+	.masonry .item img {
+	  width: 100%;
+	}
+}
