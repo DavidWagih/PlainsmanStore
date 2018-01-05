@@ -1,46 +1,34 @@
-<html>
-<head>
-</head>
-<body>
+<?php 
+session_start();
 
-You will see the alert with your location ( latitude then longitude) and then the distance between you and place of store
-</body>
- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-</html>
-<script>
+$har=haversineGreatCircleDistance(26.820553,30.802498000000014,$_POST['lati'],$_POST['longi'], 6371);
+//$har<=496.64565145886
+if($har<=500){
+	//$_SESSION['WithArea']="yes"; 
+	echo "yes ".$har;
+	$_SESSION['inrange']="yes";
+}else if($har>500){ 
+	echo "no ".$har;
+	//$_SESSION['WithArea']="NO";
+	$_SESSION['inrange']="No";	
+}
 
-$(document).ready(function getLocation() {
-	
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(showPosition);
-    } else { 
-        x.val( "Geolocation is not supported by this browser.");
-    }
-});
 
-function showPosition(position) {
+function haversineGreatCircleDistance(
+  $latitudeFrom, $longitudeFrom, $latitudeTo, $longitudeTo, $earthRadius = 6371000)
+{
+  // convert from degrees to radians
+  $latFrom = deg2rad($latitudeFrom);
+  $lonFrom = deg2rad($longitudeFrom);
+  $latTo = deg2rad($latitudeTo);
+  $lonTo = deg2rad($longitudeTo);
 
-    var MyPos;
-    lati=position.coords.latitude;
-	longi=position.coords.longitude;
-    alert(lati);
-    alert(longi);
+  $latDelta = $latTo - $latFrom;
+  $lonDelta = $lonTo - $lonFrom;
 
-                $.ajax({
+  $angle = 2 * asin(sqrt(pow(sin($latDelta / 2), 2) +
+    cos($latFrom) * cos($latTo) * pow(sin($lonDelta / 2), 2)));
+  return $angle * $earthRadius;
+}
 
-                type: "POST",
-                url: "getLocation.php",
-                data:{lati:lati,longi:longi},
-                dataType: 'text',
-                cache: false,
-                success: function(data) {
-                alert(data); // you cant comment this only for test
-                },error:function(data){
-                alert(data); // you cant comment this only for test
-                }
-     
-                });
-
-    }
-
-</script> 
+?>
